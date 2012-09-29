@@ -121,27 +121,27 @@ else:
 result = os.path.isfile("/proc/mdstat")
 if result:
 	mdstat = commands.getoutput("cat /proc/mdstat")
-	result = re.search('md0', mdstat)
-	result = result.group(0)
+	m = re.search('md0', mdstat)
+	result = m.group(0)
 	if result == "md0":
 		print "This system uses software raid"
 result = os.path.isfile("/usr/local/tw/tw_cli")
 if result:
 	twcli = commands.getoutput("/usr/local/tw/tw_cli info c0")
-	result = re.search('RAID-1', twcli)
-	result = result.group(0)
+	m = re.search('RAID-1', twcli)
+	result = m.group(0)
 	if result == "RAID-1":
 		print "This system uses hardware RAID-1"
-	result = re.search('RAID-5', twcli)
-	result = result.group(0)
+	m = re.search('RAID-5', twcli)
+	result = m.group(0)
 	if result == "RAID-5":
 		print "This system uses hardware RAID-5"
-	result = re.search('RAID-6', twcli)
-	result = result.group(0)
+	m = re.search('RAID-6', twcli)
+	result = m.group(0)
 	if result == "RAID-6":
 		print "This system uses hardware RAID-6"
-	result = re.search('RAID-10', twcli)
-	result = result.group(0)
+	m = re.search('RAID-10', twcli)
+	result = m.group(0)
 	if result == "RAID-10":
 		print "This system uses hardware RAID-10"
 
